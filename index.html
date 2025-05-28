@@ -142,25 +142,41 @@
       border-radius: 10px;
       margin-top: 20px;
     }
-    .academics-section {
-  background-color: #f3f3f3;
-  padding: 120px 40px;
-}
-
-.academics-section h2 {
-  text-align: center;
-  margin-bottom: 80px;
-  font-weight: 700;
-  font-size: 2em;
+   .academics-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
 }
 
 .academic-entry {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 50px 0;
-  border-top: 1px solid #ccc;
+  padding: 25px 0;
+  border-top: 1px solid #e0e0e0;
+  flex-wrap: wrap;
 }
+
+.academic-date {
+  font-size: 0.9em;
+  color: #666;
+  width: 30%;
+}
+
+.academic-details {
+  width: 65%;
+}
+
+.academic-details h3 {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.academic-details p {
+  font-size: 0.85em;
+  color: #444;
+  margin: 0;
+}
+
 
 .academic-entry:last-child {
   border-bottom: 1px solid #ccc;
@@ -236,21 +252,82 @@ header.visible {
   opacity: 1;
   transform: translateY(0);
 }
+nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Hamburger icon (mobile only) */
+.nav-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    z-index: 1001;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+nav a.active {
+  color: #b76e79; /* very light rose gold */
+}
+.nav-links li a.active {
+  color: #b76e79;
+}
 
   </style>
 </head>
 <body>
   <header>
     <h1>Santa Bahadur KC</h1>
-    <nav>
-  <a href="#home">Home</a>
-  <a href="#academics">Academics</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-   <a href="#technology">Technology Overview</a>
-  <a href="#hobby">Hobby</a>
+<nav>
+  <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#technology">Technology Overview</a></li>
+    <li><a href="#hobby">Hobby</a></li>
+  </ul>
 </nav>
+
 
   </header>
 
@@ -416,57 +493,85 @@ header.visible {
     <h2 style="text-align: center; margin-bottom: 60px;">PROJECTS</h2>
 
     <!-- Project 1 -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 80px;">
-      <div style="flex: 1; min-width: 280px; padding-right: 40px;">
-        <h3>ConnectBridge — LaGuardia Community College</h3>
-        <p style="font-size: 0.8em; font-weight: bold; margin: 8px 0;">Spring 2025</p>
-        <p style="font-size: 0.9em; color: #555;">
-          Designed a platform to help international students discover scholarships and support groups. 
-          This winning hackathon project focuses on accessibility and connection...
-          <a href="https://lnkd.in/eTn6p_vC" target="_blank" style="font-size: 0.7em; color: #007acc; text-decoration: none;">View Project</a>
-        </p>
-      </div>
-      <div style="flex: 1; min-width: 280px; display: flex; justify-content: center; align-items: center;">
-        <img src="connectbridge.png" alt="ConnectBridge" style="max-width: 100%; border-radius: 10px; border: 1px solid #ccc;">
-      </div>
-    </div>
+    <div style="display: flex; flex-wrap: wrap; margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+  <!-- LEFT SIDE -->
+  <div style="flex: 1; min-width: 220px;">
+    <h3 style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">ConnectBridge</h3>
+    <p style="margin: 0; font-size: 0.9em; color: #555;">LaGuardia Community College</p>
+    <p style="margin-top: 4px; font-size: 0.85em; color: #999;">Spring 2025</p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div style="flex: 2; min-width: 300px;">
+    <p style="font-size: 0.9em; color: #444;">
+      Designed a platform to help international students discover scholarships and support groups. 
+      This winning hackathon project focuses on accessibility and connection...
+      <a href="https://lnkd.in/eTn6p_vC" target="_blank" style="font-size: 0.75em; color: #b76e79; text-decoration: none;">View Project</a>
+    </p>
+  </div>
+</div>
 
     <!-- Project 2 -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 80px;">
-      <div style="flex: 1; min-width: 280px; padding-right: 40px;">
-        <h3>Smart Bank System — LaGuardia Community College</h3>
-        <p style="font-size: 0.8em; font-weight: bold; margin: 8px 0;">Spring 2025</p>
-        <p style="font-size: 0.9em; color: #555;">
-          A command-line banking system in C++ that enables secure login, user accounts, and transaction logs. 
-          Built for learning file handling and system architecture...
-          <a href="https://your-smartbank-link.com" target="_blank" style="font-size: 0.7em; color: #007acc; text-decoration: none;">View Project</a>
-        </p>
-      </div>
-      <div style="flex: 1; min-width: 280px; display: flex; justify-content: center; align-items: center;">
-        <img src="smartbank.jpg" alt="Smart Bank System" style="max-width: 100%; border-radius: 10px; border: 1px solid #ccc;">
-      </div>
-    </div>
+    <div style="display: flex; flex-wrap: wrap; margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+  <!-- LEFT SIDE -->
+  <div style="flex: 1; min-width: 220px;">
+    <h3 style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">Smart Bank System</h3>
+    <p style="margin: 0; font-size: 0.9em; color: #555;">LaGuardia Community College</p>
+    <p style="margin-top: 4px; font-size: 0.85em; color: #999;">Spring 2025</p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div style="flex: 2; min-width: 300px;">
+    <p style="font-size: 0.9em; color: #444;">
+      A command-line banking system in C++ that enables secure login, user accounts, and transaction logs. 
+      Built for learning file handling and system architecture...
+      <a href="https://your-smartbank-link.com" target="_blank" style="font-size: 0.75em; color: #b76e79; text-decoration: none;">View Project</a>
+    </p>
+  </div>
+</div>
+
   </div>
 </section>
 
 <!-- Experience Section -->
 <section id="experience">
-  <div class="page">
-    <h2 style="text-align: center; margin-bottom: 60px;">EXPERIENCE</h2>
+  <h2 style="text-align: center; margin-bottom: 60px; font-size: 2em; font-weight: 700;">EXPERIENCE</h2>
 
-    <div style="margin-bottom: 80px;">
-      <h3>Event Manager Assistant — Gannon University</h3>
-      <p style="font-size: 0.9em; color: #555; max-width: 900px;">
-        Assisted in planning and executing college-wide events. Helped coordinate logistics, design marketing material, and support smooth operations during high-attendance activities.
-      </p>
-    </div>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 900px; margin: 0 auto 60px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
 
-    <div style="margin-bottom: 80px;">
-      <h3>Student Philanthropy Officer — Gannon University</h3>
-      <p style="font-size: 0.9em; color: #555; max-width: 900px;">
-        Led initiatives to encourage student involvement in charitable campaigns. Collaborated with leadership and peers to plan fundraising events and awareness drives.
-      </p>
-    </div>
+  <!-- LEFT SIDE -->
+  <div style="flex: 1; min-width: 220px;">
+    <h3 style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">Event Manager Assistant</h3>
+    <p style="margin: 0; font-size: 0.9em; color: #555;">Gannon University</p>
+    <p style="margin-top: 4px; font-size: 0.85em; color: #999;">2023–2024</p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div style="flex: 2; min-width: 300px;">
+    <p style="font-size: 0.9em; color: #444;">
+      Assisted in planning and executing college-wide events. Helped coordinate logistics, design marketing material, and support smooth operations during high-attendance activities.
+    </p>
+  </div>
+</div>
+
+
+   <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 900px; margin: 0 auto 60px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+
+  <!-- LEFT SIDE -->
+  <div style="flex: 1; min-width: 220px;">
+    <h3 style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">Student Philanthropy Officer</h3>
+    <p style="margin: 0; font-size: 0.9em; color: #555;">Gannon University</p>
+    <p style="margin-top: 4px; font-size: 0.85em; color: #999;">2023–2024</p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div style="flex: 2; min-width: 300px;">
+    <p style="font-size: 0.9em; color: #444;">
+      Led initiatives to encourage student involvement in charitable campaigns. Collaborated with leadership and peers to plan fundraising events and awareness drives.
+    </p>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -491,7 +596,8 @@ header.visible {
 
       <!-- MS Office -->
       <div style="width: 220px; text-align: center;">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/word/word-plain.svg" alt="MS Office" width="72" height="72">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg" alt="MS Office Suite" width="72" height="72">
+
         <h3 style="margin: 10px 0 5px; font-size: 1.1em;">MS Office Suite</h3>
         <p style="font-size: 0.8em; color: #555;">
           Skilled in Word, Excel,<br>
@@ -521,7 +627,7 @@ header.visible {
 
       <!-- VS Code -->
       <div style="width: 220px; text-align: center;">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" width="72" height="72">
+       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" width="72" height="72">
         <h3 style="margin: 10px 0 5px; font-size: 1.1em;">VS Code</h3>
         <p style="font-size: 0.8em; color: #555;">
           Code editor for HTML,<br>
@@ -636,6 +742,14 @@ header.visible {
     } else {
       header.classList.remove("visible");
     }
+  });
+</script>
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
   });
 </script>
 
